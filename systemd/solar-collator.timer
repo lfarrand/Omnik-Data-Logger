@@ -1,0 +1,14 @@
+# /etc/systemd/system/solar-collator.timer
+
+[Unit]
+Description=Run solar-collator every 10 seconds
+Requires=solar-collator.service
+
+[Timer]
+Unit=solar-collator.service
+OnUnitInactiveSec=10s
+# RandomizedDelaySec=15s
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

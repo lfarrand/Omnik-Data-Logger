@@ -1,0 +1,20 @@
+sudo cp solar-collator.service /etc/systemd/system/solar-collator.service
+sudo cp solar-collator.timer /etc/systemd/system/solar-collator.timer
+sudo cp solar-collator.slice /etc/systemd/system/solar-collator.slice
+
+systemctl stop solar-collator
+systemctl daemon-reload
+systemctl enable solar-collator.timer
+systemctl start solar-collator
+
+Handy commands
+
+systemctl start solar-collator
+systemctl stop solar-collator
+systemctl status solar-collator
+
+systemctl list-timers  # view the status of the timers
+journalctl  # view the full systemd logs in less
+journalctl -u solar-collator  # view the logs for a specific service
+journalctl -f  # tail the logs
+journalctl -f -u solar-collator  # tail the logs for a specific service
