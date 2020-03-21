@@ -1,12 +1,12 @@
 # /etc/systemd/system/solar-collator.service
 
 [Unit]
-Description=Runs power usage stats collator for HS110 plugs
+Description=Solar usage stats collator for Omnik solar inverter
 Wants=solar-collator.timer
 
 [Service]
-ExecStart=/usr/bin/python3 /git/pyHS100/run.py -is containerhost02 -idb metrics -iusr metricsuser -ipass dWeSGaEL5tK59TNt
-WorkingDirectory=/git/pyHS100
+ExecStart=/usr/bin/python2 /git/Omnik-Data-Logger/OmnikExport.py
+WorkingDirectory=/git/Omnik-Data-Logger
 Slice=solar-collator.slice
 
 [Install]
